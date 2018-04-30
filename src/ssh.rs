@@ -20,7 +20,8 @@ pub struct Session {
 }
 
 impl Session {
-    pub(crate) fn connect(username: &str, addr: SocketAddr, key: &Path) -> Result<Self, Error> {
+    /// Connect to the given addr
+    pub fn connect(username: &str, addr: SocketAddr, key: &Path) -> Result<Self, Error> {
         // TODO: instead of max time, keep trying as long as instance is still active
         let start = Instant::now();
         let tcp = loop {
